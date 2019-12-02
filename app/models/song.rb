@@ -15,15 +15,15 @@ class Song < ActiveRecord::Base
     existing_drake = Artist.find_by(name: "Drake")
     
     
-    # If drake doesn't already exist, then create it
-    if !existing_drake
-      existing_drake = Artist.create(name: "Drake")
-    end
+    # OPTION 1: If drake doesn't already exist, then create it
+    # if !existing_drake
+    #   existing_drake = Artist.create(name: "Drake")
+    # end
     
-    # otherwise, at the end of it all, you want to assign either the fetched drake, or the created drake, to this song
-    self.artist = existing_drake
+    # # otherwise, at the end of it all, you want to assign either the fetched drake, or the created drake, to this song
+    # self.artist = existing_drake
     
-    # above and below are equal
+    # OPTION 2:
     
     self.artist ||= existing_drake ? existing_drake : Artist.create(name: "Drake")
   end
