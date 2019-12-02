@@ -20,6 +20,7 @@ class Song < ActiveRecord::Base
       
       existing_drake = Artist.new
       existing_drake.name "Drake"
+      
       existing_drake.save
     end
     
