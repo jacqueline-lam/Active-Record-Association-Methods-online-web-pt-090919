@@ -15,8 +15,6 @@ class Song < ActiveRecord::Base
     existing_drake = Artist.find_by(name: "Drake")
     
     
-    
-    
     # If drake doesn't already exist, then create it
     if !existing_drake
       existing_drake = Artist.create(name: "Drake")
