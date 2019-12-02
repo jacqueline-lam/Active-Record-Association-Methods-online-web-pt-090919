@@ -25,5 +25,8 @@ class Song < ActiveRecord::Base
     
     # otherwise, at the end of it all, you want to assign either the fetched drake, or the created drake, to this song
     self.artist = existing_drake
+    
+    
+    self.artist ||= Artist.find_by(name: "Drake") ? Artist.find_by(name: "Drake") : Artist.create(name: "Drake")
   end
 end
