@@ -18,10 +18,9 @@ class Song < ActiveRecord::Base
     if !existing_drake
       existing_drake = Artist.create(name: "Drake")
       
-      existing_drake = Artist.new
-      existing_drake.name "Drake"
-      
-      existing_drake.save
+      # existing_drake = Artist.new
+      # existing_drake.name = "Drake"
+      # existing_drake.save
     end
     
     # otherwise, at the end of it all, you want to assign either the fetched drake, or the created drake, to this song
