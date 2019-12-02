@@ -3,7 +3,7 @@ class Song < ActiveRecord::Base
   belongs_to :genre
 
   def get_genre_name
-    binding.pry
+    #self.genre #=> #<Genre:0x00000000039c5268 id: 1, name: "Rock">
     self.genre.name
   end
 
