@@ -12,8 +12,18 @@ class Song < ActiveRecord::Base
     # Drake doesn't exist in the database as an artist yet, so you'll have to create a record
     # Hint: you won't want to create an artist record every time this method is called, only if an Drake is *not found*
     
-    drake = nil
-    drake = Artist.create(name: "Drake") unless drake
-    self.artist = drake
+    existing_drake = Artist.find_by(name: "Drake")
+    
+    # If drake doesn't already exist, then create it
+    if !existing_drake
+      existing_drake = Artist.create(name: "Drake")
+      
+      existing_drake = Artist.new
+      existing_drake.name "Drake"
+      existing_drake.save
+    end
+    
+    # otherwise, at the end of it all, you want to assign either the fetched drake, or the created drake, to this song
+    self.artist = existing_drake
   end
 end
